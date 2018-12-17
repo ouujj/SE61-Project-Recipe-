@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-
+@Table
 public class FoodType {
 
     @Id @GeneratedValue private Long id;

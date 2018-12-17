@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-
+@Table
 public class MainIngredients {
 
     @Id @GeneratedValue private Long id;
