@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Collection;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,8 +18,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/Recipe")
 class RecipeController{ 
-        @Autowired private RecipeRespository recipeRespository;
 
+        @Autowired private RecipeRespository recipeRespository;
+        @Autowired  private CookingMethodRespository cookingMethodRespository;
+        @Autowired  private FoodTypeRespository foodTypeRespository;
+        @Autowired  private MainIngredRespository mainIngredRespository;
+ 
         public RecipeController(RecipeRespository recipeRespository){
             this.recipeRespository=recipeRespository;
 
@@ -31,9 +36,17 @@ class RecipeController{
         }
 
         @PostMapping()
-        public void addRecipe(@RequestBody  Map<String , Object>  body){
+        public Recipe addRecipe(Recipe hotRecipe, @RequestBody Map<String, Object> body) {
              
-            Recipe hotRecipe = new Recipe();
+            Optional<CookingMethod> cookingMethod = cookingMethodRespository.findById(Long.valueOf(body.get("cookingMethod").toString()));
+            Optional<FoodType> foodType = foodTypeRespository.findById(Long.valueOf(body.get("foodType").toString()));
+            Optional<MainIngredients> mainIngred = mainIngredRespository.findById(Long.valueOf(body.get("mainIngred").toString()));
+
+            hotRecipe.setCookingmethod(cookingMethod.get());
+            hotRecipe.setFoodtype(foodType.get());
+            hotRecipe.setMainingred(mainIngred.get());
+            hotRecipe.setUrlPhoto(body.get("UrlPhoto").toString());
+            return recipeRespository.save(hotRecipe);
            
     }
 
