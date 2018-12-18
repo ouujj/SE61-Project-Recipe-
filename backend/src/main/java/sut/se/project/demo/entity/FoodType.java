@@ -9,14 +9,15 @@ import javax.persistence.*;
 @Table
 public class FoodType {
 
-    @Id @GeneratedValue private Long id;
+    @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
+                        private Long id;
                         private @NonNull String name;
                        
     protected FoodType(){}
 
-    public FoodType(Long id , String name){
+    public FoodType(String name){
 
-                        this.id = id;
+                      
                         this.name =name;
     }
 

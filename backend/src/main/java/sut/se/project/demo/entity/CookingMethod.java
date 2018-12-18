@@ -8,14 +8,15 @@ import javax.persistence.*;
 @Table
 public class CookingMethod {
 
-    @Id @GeneratedValue private Long id;
+    @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
+                        private Long id;
                         private @NonNull String name;
 
     protected CookingMethod(){}
 
-    public CookingMethod(Long id , String name){
+    public CookingMethod(String name){
                     
-                        this.id = id;
+                  
                         this.name =name;
     }                       
 

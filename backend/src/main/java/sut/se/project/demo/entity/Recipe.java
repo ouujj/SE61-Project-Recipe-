@@ -8,7 +8,8 @@ import javax.persistence.*;
 @Table
 public class Recipe {
 
-    @Id @GeneratedValue private Long id;
+    @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
+                        private Long id;
                         private @NonNull String name;
                         private String  urlPhoto;
 
@@ -21,11 +22,11 @@ public class Recipe {
     @ManyToOne(fetch = FetchType.LAZY   , cascade = CascadeType.ALL)
     @JoinColumn(name="cookingmethod") private CookingMethod cookingmethod;
 
-    protected Recipe() {}  
+    public Recipe() {}  
 
-    public Recipe(Long id , String name , FoodType foodType , MainIngredients mainIngred, CookingMethod cookingMethod ){
+    public Recipe(String name , FoodType foodType , MainIngredients mainIngred, CookingMethod cookingMethod ){
 
-                        this.id   = id;
+                     
                         this.name = name;
                         this.foodtype = foodType;
                         this.mainingred = mainIngred;

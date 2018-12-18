@@ -9,15 +9,16 @@ import javax.persistence.*;
 @Table
 public class MainIngredients {
 
-    @Id @GeneratedValue private Long id;
+    @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
+                        private Long id;
                         private @NonNull String name;
                        
 
     protected MainIngredients(){}
 
-    public MainIngredients(Long id , String name){
+    public MainIngredients( String name){
 
-                        this.id = id;
+                       
                         this.name = name;
 
     }    
