@@ -10,5 +10,5 @@ package sut.se.project.demo.respository;
 @RepositoryRestResource
 @CrossOrigin(origins = "http://localhost:4200")
 public interface RecipeRespository extends JpaRepository<Recipe, Long> {
-
+            
 }

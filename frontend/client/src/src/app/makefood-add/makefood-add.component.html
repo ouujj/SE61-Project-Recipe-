@@ -1,0 +1,61 @@
+<section >
+
+
+  <h1 >เขียนสูตรอาหาร</h1>
+
+
+</section>
+<form >
+<div>
+  <mat-form-field >
+    <input matInput placeholder="ชื่ออาหาร">
+  </mat-form-field>
+</div>  
+  <mat-form-field>
+    <mat-select placeholder=" เมนูอาหาร ">
+      <mat-option *ngFor="let FoodType of foodtypes" [value]="foodtypes.idtype">
+        {{foodtypes.nametype}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder=" แบบอาหาร ">
+      <mat-option *ngFor="let CookingMethod of cookingmethods" [value]="cookingmethods.value">
+        {{cookingmethods.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder=" ส่วนประกอบหลัก ">
+      <mat-option *ngFor="let  MainIngredients of mainingreds" [value]="mainingreds.value">
+        {{mainingreds.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+<div>
+    
+        <input type="file">
+      
+</div>
+<div>
+  <mat-form-field  class="txtarray">
+    <textarea matInput placeholder="วิธีทำ" rows="15" ></textarea>
+  </mat-form-field>
+  
+</div>
+
+
+  
+
+
+
+</form>
+<section>
+
+
+<button mat-fab color="primary" [routerLink]="['/makefood-list']">Save</button>
+
+
+</section>

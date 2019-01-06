@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
-import { AddMakefoodComponent } from './add-makefood/add-makefood.component';
-
+import { MakefoodAddComponent } from './makefood-add/makefood-add.component';
+import { MakefoodListComponent } from './makefood-list/makefood-list.component';
 //Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material';
@@ -37,50 +36,33 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { ListMakefoodComponent } from './list-makefood/list-makefood.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddMakefoodComponent,
-    ListMakefoodComponent
+    MakefoodAddComponent,
+    MakefoodListComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatCheckboxModule,
-    MatCheckboxModule,
-    MatButtonModule,
-    MatInputModule,
-    MatAutocompleteModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatListModule,
-    MatGridListModule,
-    MatCardModule,
-    MatStepperModule,
-    MatTabsModule,
-    MatExpansionModule,
-    MatButtonToggleModule,
-    MatChipsModule,
-    MatIconModule,
-    MatProgressSpinnerModule,
-    MatProgressBarModule,
-    MatDialogModule,
-    MatTooltipModule,
-    MatSnackBarModule,
-    MatTableModule,
-    MatSortModule,
-    MatPaginatorModule
-
+    BrowserModule, BrowserAnimationsModule,
+    MatCheckboxModule, MatCheckboxModule, MatButtonModule,
+    MatInputModule, MatAutocompleteModule, MatDatepickerModule,
+    MatFormFieldModule, MatRadioModule,  MatSelectModule,
+    MatSliderModule, MatSlideToggleModule, MatMenuModule,
+    MatSidenavModule, MatToolbarModule,  MatListModule,
+    MatGridListModule,  MatCardModule,  MatStepperModule,
+    MatTabsModule, MatExpansionModule,MatButtonToggleModule,
+    MatChipsModule,MatIconModule, MatProgressSpinnerModule,
+    MatProgressBarModule, MatDialogModule, MatTooltipModule,
+    MatSnackBarModule, MatTableModule,
+    MatSortModule, MatPaginatorModule, 
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
